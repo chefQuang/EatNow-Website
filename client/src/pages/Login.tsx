@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-wrapper">
       <div className="login-card">
         {/* Logo / Brand Name mới */}
         <div className="brand-section">
@@ -74,7 +74,7 @@ const Login = () => {
         </form>
 
         <div className="register-link">
-          Chưa có tài khoản? <span>Đăng ký ngay</span>
+          Chưa có tài khoản? <span onClick={() => navigate('/register')}>Đăng ký ngay</span>
         </div>
       </div>
     </div>

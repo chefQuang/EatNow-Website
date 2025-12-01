@@ -1,12 +1,14 @@
-/* Import font chữ giống thiết kế */
+/* client/src/App.css */
+
+/* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-  --primary-color: #AD343E;  /* Màu đỏ chủ đạo */
-  --secondary-color: #474747; /* Màu chữ đậm */
-  --bg-color: #F9F9F7;       /* Màu nền kem */
+  --primary-color: #AD343E;
+  --secondary-color: #2C2F24;
+  --bg-color: #FDFDFB; 
   --white: #ffffff;
-  --gray-light: #e5e7eb;
+  --gray-light: #DBDFD0;
 }
 
 * {
@@ -17,119 +19,5 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'DM Sans', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--secondary-color);
-}
-
-/* --- Style cho trang Login --- */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-.login-card {
-  background: var(--white);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  max-width: 450px;
-  border: 1px solid #f0f0f0;
-}
-
-.brand-section {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.brand-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--secondary-color);
-  margin: 0;
-}
-
-.brand-subtitle {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--primary-color);
-  margin-bottom: 5px;
-}
-
-.login-desc {
-  color: #888;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-/* Style cho Form */
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-
-.form-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--gray-light);
-  border-radius: 50px; /* Bo tròn giống hình */
-  font-size: 16px;
-  transition: 0.3s;
-  outline: none;
-}
-
-.form-input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(173, 52, 62, 0.1);
-}
-
-.login-btn {
-  width: 100%;
-  padding: 14px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.login-btn:hover {
-  background-color: #8a2a32;
-  transform: translateY(-2px);
-}
-
-.error-msg {
-  background-color: #fee2e2;
-  color: #ef4444;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.register-link {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.register-link span {
-  color: var(--primary-color);
-  font-weight: bold;
-  cursor: pointer;
+  /* Không đặt background-color ở đây nữa để tránh bị trùng */
 }

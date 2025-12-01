@@ -1,0 +1,92 @@
+/* client/src/pages/Home.css */
+
+.home-wrapper {
+  background-color: var(--bg-color); /* Màu kem đặc trưng của Home */
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 40px; background-color: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;
+}
+.nav-left { display: flex; align-items: center; gap: 20px; flex: 1; }
+.menu-btn {
+  font-size: 24px; cursor: pointer; background: #f2f2f2; border: none;
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.menu-btn:hover { background: var(--primary-color); color: white; }
+
+.search-container {
+  display: flex; align-items: center; background: var(--white);
+  border: 1px solid var(--gray-light); border-radius: 50px; padding: 10px 20px;
+  width: 100%; max-width: 450px;
+}
+.search-input { border: none; background: transparent; outline: none; width: 100%; margin-left: 10px; }
+.nav-right { display: flex; align-items: center; gap: 15px; }
+.user-avatar {
+  width: 45px; height: 45px; background: linear-gradient(135deg, #AD343E, #FF7E5F);
+  color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: bold; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Sidebar */
+.sidebar-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(44, 47, 36, 0.6); z-index: 900; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+.sidebar-overlay.open { opacity: 1; visibility: visible; }
+.sidebar {
+  position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
+  background: white; z-index: 1000; transition: 0.3s ease; box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+}
+.sidebar.open { left: 0; }
+.sidebar-header {
+  background-color: var(--primary-color);
+  padding: 40px 30px;
+  /* Thêm dòng này nếu chưa có */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header .brand-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.sidebar-header p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+}
+.sidebar-item { display: flex; align-items: center; padding: 15px 30px; cursor: pointer; transition: 0.2s; }
+.sidebar-item:hover { background-color: #FFF5F5; color: var(--primary-color); padding-left: 35px; }
+.sidebar-icon { margin-right: 15px; font-size: 20px; }
+
+/* Hero Slider */
+.home-container { padding: 30px 5%; max-width: 1300px; margin: 0 auto; }
+.hero-slider {
+  position: relative; width: 100%; height: 500px; border-radius: 24px;
+  overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-top: 10px;
+}
+.slide {
+  position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center;
+  transition: opacity 0.8s ease-in-out; opacity: 0; display: flex; align-items: flex-end;
+}
+.slide.active { opacity: 1; z-index: 10; }
+.slide-content { width: 100%; padding: 50px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); color: white; }
+.slide-title { font-family: 'Playfair Display'; font-size: 48px; margin: 0; color: #fff; }
+.slider-dots { position: absolute; bottom: 30px; right: 40px; display: flex; gap: 10px; z-index: 20; }
+.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; }
+.dot.active { background: #fff; transform: scale(1.4); }
+
+/* Categories */
+.category-section { margin-top: 50px; }
+.section-title { font-family: 'Playfair Display'; font-size: 28px; margin-bottom: 25px; }
+.category-grid { display: flex; gap: 20px; }
+.category-card {
+  flex: 1; background: var(--white); padding: 25px; border-radius: 16px; border: 1px solid #eee;
+  text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+.category-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+.cat-icon { font-size: 32px; display: block; margin-bottom: 10px; }
+.cat-name { font-weight: bold; font-size: 18px; }
