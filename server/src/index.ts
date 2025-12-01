@@ -12,6 +12,8 @@ const SECRET_KEY = "eatnow_secret_key_2024";
 
 // Middleware
 app.use(cors());
+app.use(bodyParser.json({ limit: '50mb' })); 
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json());
 
 // --- DATABASE CHO MÓN ĂN ---
@@ -73,7 +75,7 @@ const DISHES: Dish[] = [
     nutrition: { protein: 25, fat: 45, carbs: 30 },
     reviews: []
   },
-  // ... Bạn có thể thêm các món khác tương tự
+
   {
     id: 3,
     name: "Sushi Sashimi Set",
@@ -172,7 +174,6 @@ app.post('/api/login', (req: Request, res: Response): any => {
 
 // 1. Lấy danh sách tất cả món ăn (Cho trang Home và Search)
 app.get('/api/products', (req: Request, res: Response) => {
-  console.log("Ai đó đang gọi API products!");
   res.json(DISHES);
 });
 

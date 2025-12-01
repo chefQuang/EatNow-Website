@@ -35,11 +35,37 @@ const ProductDetail = () => {
     if (userStr) setCurrentUser(JSON.parse(userStr));
   }, [id]);
 
+  //Hàm chuyển ảnh sang BASE64
+  const convertToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result as string);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
   // Xử lý ảnh (giữ nguyên logic preview local)
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      setMyImage(imageUrl);
+      const file = e.target.files[0];
+      
+      // Kiểm tra kích thước file (ví dụ giới hạn 2MB để server đỡ lag)
+      if (file.size > 2 * 1024 * 1024) {
+        alert("Ảnh quá lớn! Vui lòng chọn ảnh dưới 2MB.");
+        return;
+      }
+
+      try {
+        const base64 = await convertToBase64(file);
+        setMyImage(base64); // Lưu chuỗi base64 vào state để hiển thị và gửi đi
+      } catch (error) {
+        console.error("Lỗi chuyển đổi ảnh:", error);
+      }
     }
   };
 
